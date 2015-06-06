@@ -5,7 +5,8 @@ public enum DeclineReason {
 	CURRENCY_NOT_SUPPORTED ("Currency no supported"),
 	SENDER_BLACKLISTED("Sender is blacklisted"),
 	COUNTERPARTY_BLACKLISTED("Counterparty is blacklisted"),
-	EMPTY_TXN_DATA ("Transaction data is empty");
+	EMPTY_TXN_DATA ("Transaction data is empty"),
+	SYSTEM_UNAVAILABLE ("System is unavailable");
 	
 	private final String reason;
 	
