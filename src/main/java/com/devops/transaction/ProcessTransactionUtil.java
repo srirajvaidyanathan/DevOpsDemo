@@ -16,7 +16,7 @@ public class ProcessTransactionUtil {
 		} else if (!transactionData.getAmount().getCurrency().equals("USD")) {
 			transactionResult.setResult(false);
 			transactionResult.setReason(DeclineReason.CURRENCY_NOT_SUPPORTED);
-		} else if (transactionData.getAmount().getAmount() > 1500L) {
+		} else if (transactionData.getAmount().getAmount() > 1000L) {
 			transactionResult.setResult(false);
 			transactionResult.setReason(DeclineReason.AMOUNT_TOO_HIGH);
 		} else if (transactionData.getSenderName().equals("badSender")) {
