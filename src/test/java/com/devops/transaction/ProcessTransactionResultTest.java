@@ -90,7 +90,7 @@ public class ProcessTransactionResultTest {
 		data.setCounterpartyName("badCounterparty");
 		TransactionResult result = ProcessTransactionUtil.processTransaction(data);
 		Assert.assertEquals(Boolean.FALSE, result.getResult());
-		Assert.assertEquals(DeclineReason.AMOUNT_TOO_HIGH, result.getReason());
+		Assert.assertEquals(DeclineReason.COUNTERPARTY_BLACKLISTED, result.getReason());
 	}
 	
 	@Test
