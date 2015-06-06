@@ -37,7 +37,7 @@ public class ProcessTransactionUtil {
 		return transactionResult;
 	}
 	
-	private int getDayOfWeek() {
+	private static int getDayOfWeek() {
 		Calendar.getInstance().setTime(new Date());
 		return Calendar.DAY_OF_WEEK;
 	}
