@@ -17,7 +17,7 @@ public class ProcessTransactionResultTest {
 	@Test
 	public void testEmptyCurrency() {
 		DataSet data = initData();
-		data.setAmount(new Money(100L, ""));
+		data.setAmount(new Money(100L, null));
 		TransactionResult result = ProcessTransactionUtil.processTransaction(data);
 		Assert.assertEquals(Boolean.FALSE, result.getResult());
 		Assert.assertEquals(DeclineReason.EMPTY_TXN_DATA, result.getReason());
@@ -91,20 +91,6 @@ public class ProcessTransactionResultTest {
 		TransactionResult result = ProcessTransactionUtil.processTransaction(data);
 		Assert.assertEquals(Boolean.FALSE, result.getResult());
 		Assert.assertEquals(DeclineReason.AMOUNT_TOO_HIGH, result.getReason());
-	}
-	
-	@SuppressWarnings("unused")
-	@Test
-	public void testSystemUnavailableDecline() {
-		DataSet data = initData();
-		TransactionResult result = ProcessTransactionUtil.processTransaction(data);
-		Calendar.getInstance().setTime(new Date());
-		if (Calendar.DAY_OF_WEEK == Calendar.SUNDAY) {
-			Assert.assertEquals(Boolean.FALSE, result.getResult());
-			Assert.assertEquals(DeclineReason.AMOUNT_TOO_HIGH, result.getReason());
-		} else {
-			Assert.assertEquals(Boolean.TRUE, result.getResult());
-		}
 	}
 	
 	@Test
