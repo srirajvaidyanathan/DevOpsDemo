@@ -60,7 +60,7 @@ public class ProcessTransactionResultTest {
 	@Test
 	public void testHighAmountDecline() {
 		DataSet data = initData();
-		data.setAmount(new Money(1000L, "USD"));
+		data.setAmount(new Money(1200L, "USD"));
 		TransactionResult result = ProcessTransactionUtil.processTransaction(data);
 		Assert.assertEquals(Boolean.FALSE, result.getResult());
 		Assert.assertEquals(DeclineReason.AMOUNT_TOO_HIGH, result.getReason());
